@@ -1,4 +1,4 @@
-const User = require("../mongoDB/userModel");
+const User = require("../mongoDB/userSchema")
 const  Mongoose  = require("mongoose");
 const { hashPassword } = require("./hash");
 require('dotenv').config();
