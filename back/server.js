@@ -27,21 +27,24 @@ const allUsersObj = []
 io.on("connection", (socket)=>{
     console.log(socket.id, "connected");
     socket.on("setUserName", (userName)=>{
-        const userObj = {id: socket.id, userName}
-        allUsersObj.push(userObj)
-        socket.emit("getID", (userObj))
+        const userObj = {id: socket.id, userName};
+        allUsersObj.push(userObj);
+        console.log(allUsersObj, 32);
+        socket.emit("getID", (userObj));
     })
     socket.on("newUserLogin", ()=>{
-        allUsersObj.push(socket.id)
+        allUsersObj.push(socket.id);
         console.log(allUsersObj);
-        socket.broadcast.emit("newUserLogin")
+        socket.broadcast.emit("newUserLogin");
     })
     socket.on("sendMessage", (msgObj)=>{
         console.log(msgObj);
-        io.emit("getNewMsg", msgObj)
+        io.emit("getNewMsg", msgObj);
     })
     socket.on("disconnect", ()=>{
-        allUsersObj.splice(allUsersObj.indexOf(socket.id), 1)
+        console.log(socket.id, "disconnected");
+        allUsersObj.splice(allUsersObj.indexOf(socket.id), 1);
+        console.log(allUsersObj,47);
     })
 })
 

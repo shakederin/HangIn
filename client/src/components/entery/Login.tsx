@@ -56,6 +56,7 @@ export default function Login() {
                 <TextField
                     id="outlined-required"
                     label="Username"
+                    ref={inputElement}
                 />
                 <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -79,7 +80,7 @@ export default function Login() {
                         label="Password"
                     />
                 </FormControl>
-                <Button variant="contained">Contained</Button>
+                <Button onClick={setUserName} variant="contained">Login</Button>
             </Box>
         </div>
     )
